@@ -5,7 +5,9 @@ public class Pesquisa {
 	public static void main(String[] args) {
 		
 		String frase;
-		String caractere;
+		char caractere;
+		int quantidade = 0;
+		int posicao = 0;
 		
 		Scanner input = new Scanner(System.in);	
 		
@@ -13,13 +15,16 @@ public class Pesquisa {
 		frase = input.nextLine();
 		
 		System.out.println("Insira um caractere para pesquisar na frase:");
-		caractere = input.next();
+		caractere = input.next().charAt(0);
 		
-		for(int i = 0; i < frase.length(); i++) {
+		while(frase.indexOf(caractere, posicao) >= 0) {
 			
-			
-			
+			quantidade++;
+			posicao = frase.indexOf(caractere, posicao) + 1;
+				
 		}
+		
+		System.out.printf("Ocorrências de \'%c\' em \"%s\": %d", caractere, frase, quantidade);
 		
 	}
 
